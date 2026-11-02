@@ -2,6 +2,8 @@
 
 A private mobile game queue. GitHub Pages serves the interface; a Cloudflare Worker holds Google credentials and uses a private D1 database. Google sign-in is restricted to the configured account. No ChatGPT session is required.
 
+The complete editable source, tests, migration, and environment template are in `snowball-source.zip` in this repository. Download and extract it before running the commands below. `docs/` contains the deployed static interface.
+
 ## Local startup
 
 Use Node 22.13 or newer, then `npm ci`. Copy `.env.example` to `.dev.vars` and supply server credentials locally. Never commit that file. Run `npx wrangler d1 migrations apply snowball --local`, then `npm run dev:api`. For the interface, set `frontend/public/config.json` to your HTTPS backend and run `npx vite --config vite.pages.config.ts`. The production frontend is built with `npm run build:pages` into `docs/`.
